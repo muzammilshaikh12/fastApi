@@ -21,7 +21,7 @@ def index():
 
 # path parameters
 @app.get('/square/{number}')
-def squareFunction(number:int):
+def squareFunction(number:int = 10):
     try:
      return {
         "data":f"The Square of number {number} is {number*number}"
@@ -31,7 +31,7 @@ def squareFunction(number:int):
 
 # query parameters
 @app.get('/blogs')
-def blogs(limit:int= 10,published:bool = True,sort: Optional[str]=None):
+def blogs(limit:int = 10,published:bool = True,sort: Optional[str]=None):
     try:
      if(published):  
         return {"data":f'{limit} published blogs from Db'}
